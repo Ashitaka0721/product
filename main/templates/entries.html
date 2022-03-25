@@ -1,0 +1,21 @@
+<html>
+ <head>
+   <title>食事管理</title>
+ </head>
+ <body>
+   <br>
+   <h1>食事管理</h1>
+   <form action="{{ url_for('add_entry') }}" method=post>
+     <p>食べたもの　<input type="text" name="ate"></p>
+     <p>食べた量　<input type="text" name="amount"></p>
+     <p><input type="submit" value="送る"></p>
+ </form>
+ <br>
+ <p>[送信履歴]</p>
+ <ul class="entries">
+ {% for entry in entries %}
+   <li>食事：{{entry.ate}} / 食事量：{{entry.amount}} / 食事日時：{{entry.ate_at}}</li>
+ {% endfor %}
+  </ul>
+</body>
+</html>
